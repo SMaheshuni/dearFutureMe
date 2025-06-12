@@ -1,26 +1,27 @@
+
 /* style.css - Add these styles */
 
 /* Snackbar Styles */
 .snackbar {
-    visibility: hidden; /* Hidden by default. Animated to visible on click. */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #333; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 8px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1000; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
+    visibility: hidden; 
+    min-width: 250px; 
+    margin-left: -125px; 
+    background-color: #333; 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 8px; 
+    padding: 16px; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 50%; 
+    bottom: 30px; 
     font-size: 1rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 /* Show the snackbar (animation) */
 .snackbar.show {
-    visibility: visible; /* Show the snackbar */
+    visibility: visible; 
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -60,7 +61,7 @@ body.dark-mode .snackbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4rem 2rem; /* Add padding for breathing room */
+    padding: 4rem 2rem; 
 }
 
 .listNotesSection h2 {
@@ -73,7 +74,7 @@ body.dark-mode .snackbar {
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradientShift 8s ease infinite; /* Re-use existing gradient shift */
+    animation: gradientShift 8s ease infinite; 
 }
 
 body.dark-mode .listNotesSection h2 {
@@ -89,11 +90,11 @@ body.dark-mode .listNotesSection h2 {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 3rem;
         max-width: 1200px;
-        /* width: 100%;
-        margin: 10px auto;
-        overflow-y: scroll;
-        height: 58vh;
-        padding: 0px; */
+        justify-items: center;
+        margin: 0 auto;
+        height: 60vh;
+        overflow-y: auto;
+      
 }
 
 .note-card {
@@ -108,11 +109,17 @@ body.dark-mode .listNotesSection h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 220px; /* Ensure cards have a consistent height */
-    position: relative; /* For the 'open' animation */
-    overflow: hidden; /* Hide overflow for content */
+    height: 220px; 
+    position: relative; 
+    overflow: hidden; 
+    transform-origin: top center;
+    transition: transform 1.2s ease-in-out;
 }
-
+.note-card.active{
+    position: absolute;
+    transform: translate(var(--tx), var(--ty)) scale(1.5);
+    z-index: 1; 
+}
 .note-card::before {
     content: '';
     position: absolute;
@@ -120,7 +127,7 @@ body.dark-mode .listNotesSection h2 {
     left: 0;
     right: 0;
     height: 8px;
-    background: linear-gradient(90deg, #7c3aed, #3b82f6); /* Top border gradient */
+    background: linear-gradient(90deg, #7c3aed, #3b82f6); 
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
 }
@@ -132,22 +139,19 @@ body.dark-mode .note-card {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(139, 92, 246, 0.2);
 }
 
-.note-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-}
+
 
 .note-card p.note-text {
     font-size: 1.1rem;
     color: #1e293b;
     margin-bottom: 1.5rem;
     line-height: 1.6;
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    overflow: hidden; 
+    text-overflow: ellipsis; 
     display: -webkit-box;
-    -webkit-line-clamp: 5; /* Limit to 5 lines for preview */
+    -webkit-line-clamp: 5; 
     -webkit-box-orient: vertical;
-    flex-grow: 1; /* Allow text to take available space */
+    flex-grow: 1; 
 }
 
 body.dark-mode .note-card p.note-text {
@@ -175,9 +179,10 @@ body.dark-mode .note-card .note-meta {
     cursor: pointer;
     font-size: 0.9rem;
     margin-top: 1rem;
-    align-self: flex-end; /* Align to the right within the card */
+    align-self: flex-end; 
     box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
     transition: all 0.2s ease;
+
 }
 
 .note-card button.read-more:hover {
@@ -276,3 +281,6 @@ body.dark-mode .close-modal-btn {
 .close-modal-btn:hover {
     transform: rotate(90deg);
 }
+
+
+
