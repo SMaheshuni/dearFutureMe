@@ -16,7 +16,6 @@ if (localStorage.getItem('theme') === 'dark') {
     }
 }
 
-
 // --- Typewriter Effect ---
 const messages = ["A letter to your future self..."]; 
 let idx = 0;
@@ -33,36 +32,37 @@ function type() {
 }
 
 // --- Sparkle Animation ---
-const hero = document.querySelector('.hero');
 const sparkleCount = 80;
 
 function createSparkles() {
-    if (!hero) return; 
+    const sections = document.querySelectorAll('section');
+    if (!sections.length) return;
 
-    for (let i = 0; i < sparkleCount; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('sparkle');
+    sections.forEach(section => {
+        for (let i = 0; i < sparkleCount; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
 
-        const pastelColors = [
-            'rgba(255, 200, 250, 0.7)',
-            'rgba(255, 240, 180, 0.7)',
-            'rgba(210, 240, 255, 0.7)',
-            'rgba(230, 200, 255, 0.7)',
-            'rgba(255, 255, 200, 0.6)'
-        ];
-        const color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
-        sparkle.style.backgroundColor = color;
-        sparkle.style.boxShadow = `0 0 8px ${color}`;
+            const pastelColors = [
+                'rgba(255, 200, 250, 0.7)',
+                'rgba(255, 240, 180, 0.7)',
+                'rgba(210, 240, 255, 0.7)',
+                'rgba(230, 200, 255, 0.7)',
+                'rgba(255, 255, 200, 0.6)'
+            ];
+            const color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
+            sparkle.style.backgroundColor = color;
+            sparkle.style.boxShadow = `0 0 8px ${color}`;
+            sparkle.style.top = `${Math.random() * 100}%`;
+            sparkle.style.left = `${Math.random() * 100}%`;
+            sparkle.style.animationDelay = `${Math.random() * 3}s`;
+            sparkle.style.animationDuration = `${1.5 + Math.random()}s`;
 
-        sparkle.style.top = `${Math.random() * 100}%`;
-        sparkle.style.left = `${Math.random() * 100}%`;
-
-        sparkle.style.animationDelay = `${Math.random() * 3}s`;
-        sparkle.style.animationDuration = `${1.5 + Math.random()}s`;
-
-        hero.appendChild(sparkle);
-    }
+            section.appendChild(sparkle);
+        }
+    });
 }
+
 
 // --- Carousel Logic ---
 const slides = document.querySelectorAll('.carousel-slide');
