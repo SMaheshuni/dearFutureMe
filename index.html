@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Letters to My Future Self</title>
+    <link rel="stylesheet" href="/style/style.css" />
+    <link rel="stylesheet" href="/style/carousel.css">
+    <link rel="stylesheet" href="/style/write.css">
+    <link rel="stylesheet" href="/style/snack.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <section class="hero ">
+        <div class="theme">
+            <span class="greeting">Hi Nitish</span>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+        </div>
+        <div class="hero-content">
+            <h1><span id="auto-type"></span></h1>
+            <p>
+                A letter of
+                <span class="highlight hope">hope</span>,
+                <span class="highlight dreams">dreams</span>, and
+                <span class="highlight growth">growth</span>.
+            </p>
+            <button class="cta"><a href="#write">Write a Letter to Your Future Self</a></button>
+        </div>
+        <div class="floating-paper" style="--left: 10%; --size: 80px; --delay: 0s; --duration: 18s;"></div>
+        <div class="floating-paper" style="--left: 30%; --size: 120px; --delay: 4s; --duration: 20s;"></div>
+        <div class="floating-paper" style="--left: 60%; --size: 100px; --delay: 2s; --duration: 22s;"></div>
+        <div class="floating-paper" style="--left: 80%; --size: 90px; --delay: 6s; --duration: 19s;"></div>
+        <div class="floating-paper" style="--left: 100%; --size: 90px; --delay: 7s; --duration: 23s;"></div>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-slide active">
+                <p>"Dear Future Me, I'm proud of how far you've come."</p>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="carousel-slide">
+                <p>"Keep choosing hope every single time."</p>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="carousel-slide">
+                <p>"You didn't give up. That's your magic."</p>
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+
+
+    </section>
+    <section id="write" class="writeLetter ">
+        <div class="container">
+            <div class="glass-form">
+                <h2>Write Your Letter to Future You</h2>
+                <textarea id="letter" placeholder="Dear Future Me..." required></textarea>
+                <select id="duration">
+                    <option value="1">1 year from now</option>
+                    <option value="2">2 years from now</option>
+                    <option value="5">5 years from now</option>
+                </select>
+                <button class="sealSave" id="submit">Seal & Save</button>
+            </div>
+            <div class="envelope hidden" id="envelope">
+                💌
+            </div>
+            <div id="confirmation" class="hidden">
+                <h3>📨 Letter Sealed!</h3>
+                <p>Your words are safe in the universe ✨</p>
+            </div>
+        </div>
+    </section>
+    <section id="view-letter" class="viewLetter" style="display:none; padding: 2rem; text-align: center;">
+        <h2>Your Saved Letter</h2>
+        <p id="savedLetterText" style="white-space: pre-wrap; font-size: 1.2rem; max-width: 600px; margin: 1rem auto;">
+        </p>
+        <p id="savedLetterMeta" style="color: gray; font-size: 0.9rem;"></p>
+        <button id="closeViewLetter">Close</button>
+    </section>
+    <div id="snackbar" class="snackbar"></div>
+    <audio id="envelopeSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"
+        preload="auto"></audio>
+        <section id="list-notes" class="listNotesSection" style="display:none; padding: 2rem; text-align: center;">
+            <h2>Your Past Letters</h2>
+            <div id="notes-container" class="notes-grid">
+                </div>
+            <button id="backToHomeBtn" class="cta" style="margin-top: 30px;">Write Another Letter</button>
+        </section>
+        <div class="note-modal">
+        </div>
+</body>
+
+</html>

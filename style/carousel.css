@@ -1,0 +1,113 @@
+.carousel-section {
+    position: relative;
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 40px 20px;
+    text-align: center;
+    perspective: 1200px;
+  }
+  
+  .carousel-wrapper {
+    position: relative;
+    width: 50%;
+    margin-top: 5%;
+    /* height: 200px; */
+  }
+  
+  .carousel-slide {
+    position: absolute;
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(135deg, #fef3c7, #dbeafe);
+    color: #1e293b;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: rotateX(90deg) scale(0.8);
+    transition: all 1s ease;
+    font-size: 1.5rem;
+    font-weight: 500;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .carousel-slide.active {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+    pointer-events: auto;
+    z-index: 1;
+  }
+  
+  .carousel-slide p {
+    margin: 0;
+    animation: textFade 1.5s ease;
+  }
+  
+  @keyframes textFade {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  /* Progress Bar */
+  .progress-bar {
+    height: 4px;
+    background: #7c3aed;
+    border-radius: 2px;
+    margin-top: 30px;
+    animation: progress 5s linear forwards;
+  }
+  
+  @keyframes progress {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  /* Buttons */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: #7c3aed;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 10;
+  }
+  
+  .carousel-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(91, 33, 182, 0.9);
+  }
+  
+  .carousel-btn.prev {
+    left: -60px;
+  }
+  
+  .carousel-btn.next {
+    right: -60px;
+  }
+  
+  @media (max-width: 640px) {
+    .carousel-btn.prev {
+      left: 10px;
+    }
+    .carousel-btn.next {
+      right: 10px;
+    }
+  }
+  
